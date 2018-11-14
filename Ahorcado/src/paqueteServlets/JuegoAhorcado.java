@@ -38,7 +38,7 @@ public class JuegoAhorcado extends HttpServlet {
 
 		// genero la palabra
 		String palabra = Utilidades.generaPalabra();
-		String fallosDisponibles = "6";
+		String fallosDisponibles = "7";
 		String letrasConGuiones[] = new String[palabra.length()]; // array de letras pero con guiones
 		String letrasProbadas = "";
 		String ultimaRecibida = "";
