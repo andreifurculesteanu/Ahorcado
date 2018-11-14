@@ -3,7 +3,7 @@ package paqueteUtilidades;
 public class Utilidades {
 	
 	public static String generaPalabra() {
-		String[] arrayPalabras = {"andrei", "daniel", "adrian", "miguel", "maria", "david"};
+		String[] arrayPalabras = {"andrei", "david"};
 		int aleatorio = (int) (Math.random()*arrayPalabras.length);
 		String palabra = arrayPalabras[aleatorio];
 		
@@ -12,9 +12,9 @@ public class Utilidades {
 	
 	//metodo para cambiar tildes y ñ
 	public static String limpiar(String palabra) {
-	    String original = "ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏĞÑÒÓÔÕÖØÙÚÛÜİßàáâãäåæçèéêëìíîïğñòóôõöøùúûüıÿ";
+	    String original = "ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏĞÒÓÔÕÖØÙÚÛÜİßàáâãäåæçèéêëìíîïğòóôõöøùúûüıÿ";
 	    //Cadena de caracteres ASCII que reemplazarán los originales.
-	    String ascii = "AAAAAAACEEEEIIIIDNOOOOOOUUUUYBaaaaaaaceeeeiiiionoooooouuuuyy";
+	    String ascii = "AAAAAAACEEEEIIIIDOOOOOOUUUUYBaaaaaaaceeeeiiiiooooooouuuuyy";
 	    for (int i=0; i<original.length(); i++) {
 	    //Reemplazamos los caracteres especiales.
 	        palabra = palabra.replace(original.charAt(i), ascii.charAt(i));

@@ -42,6 +42,7 @@ public class JuegoAhorcado extends HttpServlet {
 		String letrasConGuiones[] = new String[palabra.length()]; // array de letras pero con guiones
 		String letrasProbadas = "";
 		String ultimaRecibida = "";
+		String[] letras = palabra.split("");
 
 		for (int i = 0; i < letrasConGuiones.length; i++) {
 			letrasConGuiones[i] = "_";
@@ -54,6 +55,7 @@ public class JuegoAhorcado extends HttpServlet {
 		laSesion.setAttribute("letrasConGuiones", letrasConGuiones);
 		laSesion.setAttribute("letrasProbadas", letrasProbadas);
 		laSesion.setAttribute("ultimaRecibida", ultimaRecibida);
+		laSesion.setAttribute("letras", letras);
 
 		/*
 		 * Las 3 siguientes lineas delegan al JSP pintar el formulario (segun el doGet)
@@ -87,25 +89,35 @@ public class JuegoAhorcado extends HttpServlet {
 			String letrasProbadas = (String) laSesion.getAttribute("letrasProbadas");
 			String[] letrasConGuiones = (String[]) laSesion.getAttribute("letrasConGuiones");
 			
+			
 			//se añade la letra tambien a las letras ya usadas
-			letrasProbadas = letrasProbadas + "-" + ultimaRecibida;
+			
+			if(letrasProbadas.length()==0) {
+				letrasProbadas = ultimaRecibida;
+			}else {
+				letrasProbadas = letrasProbadas + "-" + ultimaRecibida;
+			}
 			
 			
-			//for que recorre la palabra y busca si contiene la letra
-			for (int i = 0; i < letrasConGuiones.length; i++) {
-				//si la contiene cambia en la palabra oculta el guion por la letra en concreto
-				if (!Utilidades.contieneLetra(ultimaRecibida, palabra)) {
-					//cambio los fallosDisponibles de String a int
-					int fallosDispo = Integer.parseInt(fallosDisponibles);
-					//si no la contiene resta vidas
-					fallosDispo--;
-					//vuelvo a convertir los fallos a String
-					fallosDisponibles = "" + fallosDispo; 
-				} else {
-					letrasConGuiones[i] = ultimaRecibida;
-					
+			//si la contiene cambia en la palabra oculta el guion por la letra en concreto
+			if (!Utilidades.contieneLetra(ultimaRecibida, palabra)) {
+				//cambio los fallosDisponibles de String a int
+				int fallosDispo = Integer.parseInt(fallosDisponibles);
+				//si no la contiene resta vidas
+				fallosDispo = fallosDispo - 1;
+				//vuelvo a convertir los fallos a String
+				fallosDisponibles = "" + fallosDispo; 
+			} else {
+				//for que recorre la palabra y busca si contiene la letra
+				for (int i = 0; i < letrasConGuiones.length; i++) {
+					if(letras[i].equals(ultimaRecibida)) {
+						System.out.println(letrasConGuiones[i]+"g");
+						System.out.println(palabra.charAt(i)+"p");
+						letrasConGuiones[i] = Character.toString(palabra.charAt(i));
+					}
 				}
 			}
+			
 			
 			
 			//vuelvo a pasar todo a la sesion

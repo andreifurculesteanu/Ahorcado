@@ -4,7 +4,8 @@
 	
 	String palabra = (String) laSesion.getAttribute("palabra");
 	String fallosDisponibles = (String) laSesion.getAttribute("fallosDisponibles");
-	String[] letrasConGuiones = (String []) laSesion.getAttribute("letrasConGuiones"); 
+	String[] letrasConGuiones = (String []) laSesion.getAttribute("letrasConGuiones");
+	String[] letras = (String []) laSesion.getAttribute("letras"); 
 	String letrasProbadas = (String) laSesion.getAttribute("letrasProbadas");
 	String ultimaRecibida = (String) laSesion.getAttribute("ultimaRecibida");
 %>
