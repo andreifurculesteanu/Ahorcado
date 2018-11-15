@@ -43,6 +43,9 @@ public class JuegoAhorcado extends HttpServlet {
 		String letrasProbadas = "";
 		String ultimaRecibida = "";
 		String[] letras = palabra.split("");
+		int jugando = 1;
+		int ganado = 0;
+		int perdido = 0;
 
 		for (int i = 0; i < letrasConGuiones.length; i++) {
 			letrasConGuiones[i] = "_";
@@ -56,6 +59,9 @@ public class JuegoAhorcado extends HttpServlet {
 		laSesion.setAttribute("letrasProbadas", letrasProbadas);
 		laSesion.setAttribute("ultimaRecibida", ultimaRecibida);
 		laSesion.setAttribute("letras", letras);
+		laSesion.setAttribute("jugando", jugando);
+		laSesion.setAttribute("ganado", ganado);
+		laSesion.setAttribute("perdido", perdido);
 
 		/*
 		 * Las 3 siguientes lineas delegan al JSP pintar el formulario (segun el doGet)
@@ -88,6 +94,9 @@ public class JuegoAhorcado extends HttpServlet {
 			String[] letras = (String[]) laSesion.getAttribute("letras");
 			String letrasProbadas = (String) laSesion.getAttribute("letrasProbadas");
 			String[] letrasConGuiones = (String[]) laSesion.getAttribute("letrasConGuiones");
+			int jugando = (int) laSesion.getAttribute("jugando");
+			int ganado = (int) laSesion.getAttribute("ganado");
+			int perdido = (int) laSesion.getAttribute("perdido");
 			
 			
 			//se añade la letra tambien a las letras ya usadas
@@ -119,6 +128,15 @@ public class JuegoAhorcado extends HttpServlet {
 			}
 			
 			
+			if (Integer.parseInt(fallosDisponibles) == 0) {
+				jugando = 0;
+				ganado = 0;
+				perdido = 1;
+			} else if(Integer.parseInt(fallosDisponibles) > 0 && Utilidades.coincidencia(letrasConGuiones, palabra)) {
+				jugando = 0;
+				ganado = 1;
+				perdido = 0;
+			}
 			
 			//vuelvo a pasar todo a la sesion
 			laSesion.setAttribute("palabra", palabra);
@@ -126,6 +144,9 @@ public class JuegoAhorcado extends HttpServlet {
 			laSesion.setAttribute("letrasConGuiones", letrasConGuiones);
 			laSesion.setAttribute("letrasProbadas", letrasProbadas);
 			laSesion.setAttribute("ultimaRecibida", ultimaRecibida);
+			laSesion.setAttribute("jugando", jugando);
+			laSesion.setAttribute("ganado", ganado);
+			laSesion.setAttribute("perdido", perdido);
 			
 		} else {
 			

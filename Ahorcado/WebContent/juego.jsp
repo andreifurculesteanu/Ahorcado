@@ -8,7 +8,12 @@
 	String[] letras = (String []) laSesion.getAttribute("letras"); 
 	String letrasProbadas = (String) laSesion.getAttribute("letrasProbadas");
 	String ultimaRecibida = (String) laSesion.getAttribute("ultimaRecibida");
+	int jugando = (int) laSesion.getAttribute("jugando");
+	int ganado = (int) laSesion.getAttribute("ganado");
+	int perdido = (int) laSesion.getAttribute("perdido");
 	String ruta = "img/" + fallosDisponibles + ".png";
+	String rutaPerdido = "img/" + fallosDisponibles + ".png";
+	String rutaGanado = "img/ganado.jpg";
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -27,6 +32,10 @@
 	</head>
 	<body>
 		<h1 align="center"> Juego ahorcado </h1>
+		
+		<!-- Div que se muestra mientras estas jugando -->
+		<%if (jugando == 1){ %>
+		<div>
 	 	<div id="juego">
 		 	<form method="post" action="JuegoAhorcado">
 		 		Palabra a adivinar: <% for (int i = 0; i < letrasConGuiones.length; i++) { %>
@@ -51,5 +60,35 @@
 	 	<div id="fotos">
 	 		<img src="<%= ruta %>">
 	 	</div>
+	 	</div>
+	 	
+	 	<% } %>
+	 	
+	 	<!-- Div que se muestra cuando has ganado -->
+	 	<%if (ganado == 1){ %>
+	 	<div>
+	 		<h1 align="center"> HAS GANADO!!! </h1>
+	 		<h3 align="center"> ENHORABUENA!!! </h3>
+	 		<br>
+	 		Has hacertado la palabra secreta: <%= palabra %>
+	 		<br>
+	 		<br>
+	 		<img src="<%= rutaGanado %>">
+	 	</div>
+	 	<% } %>
+	 	
+	 	<!-- Div que se muestra cuando has perdido -->
+	 	<%if (perdido == 1){ %>
+	 	<div>
+	 		<h1 align="center"> HAS PERDIDO </h1>
+	 		<h3 align="center"> LO SIENTO!!! </h3>
+	 		
+	 		<br>
+	 		La palabra secreta era: <%= palabra %>
+	 		<br>
+	 		<br>
+	 		<img src="<%= rutaPerdido %>">
+	 	</div>
+	 	<% } %>
 	</body>
 </html>

@@ -47,4 +47,22 @@ public class Utilidades {
 		return correcto;
 	}
 	
+	
+	//vuelvo a concatenar las letras de los guiones para ver si es igual que la palabra original
+	public static boolean coincidencia(String[] miArray, String pal) {
+		String palabraTemporal = "";
+		boolean resultado = false;
+		for (int i = 0; i < miArray.length; i++) {
+			if(palabraTemporal.length()==0) {
+				palabraTemporal = miArray[i];
+			}else {
+				palabraTemporal = palabraTemporal + miArray[i];
+			}
+		}
+		if (palabraTemporal.equals(pal)) {
+			resultado = true;
+		}
+		return resultado;
+	}
+	
 }
