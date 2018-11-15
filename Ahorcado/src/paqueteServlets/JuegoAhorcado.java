@@ -112,7 +112,7 @@ public class JuegoAhorcado extends HttpServlet {
 			
 			
 			//si la contiene cambia en la palabra oculta el guion por la letra en concreto
-			if (!Utilidades.contieneLetra(ultimaRecibida, palabra)) {
+			if (!Utilidades.contieneLetra(ultimaRecibida, palabraSin)) {
 				//cambio los fallosDisponibles de String a int
 				int fallosDispo = Integer.parseInt(fallosDisponibles);
 				//si no la contiene resta vidas
@@ -151,11 +151,12 @@ public class JuegoAhorcado extends HttpServlet {
 			laSesion.setAttribute("perdido", perdido);
 			
 		} else {
-			//falta poner que pasa cuando no introduzco bien la letra
+			//falta poner que pasa cuando no introduzco bien la letra, por ejemplo length != 1 o cuando introduzco numero
+			// falta poner cuando la letra ya esta introducida
 		}
 
 		/*
-		 * Las 3 siguientes lineas delegan al JSP pintar el formulario (segun el doGet)
+		 * Las 3 siguientes lineas delegan al JSP pintar el formulario (segun el doPost)
 		 */
 		String vista = "/juego.jsp";
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(vista);

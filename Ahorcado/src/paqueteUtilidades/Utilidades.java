@@ -3,7 +3,7 @@ package paqueteUtilidades;
 public class Utilidades {
 	
 	public static String generaPalabra() {
-		String[] arrayPalabras = {"andrei", "david"};
+		String[] arrayPalabras = {"andreí", "dávid"};
 	/*	String[] arrayPalabras = {"tirana", "berlín", "viena", "bruselas", "minsk", "sarajevo", "sofía", "nicosia"
 				, " zagreb", "copenhague", "bratislava", "liubliana", "madrid", "tallin", "helsinki", "parís", "atenas"
 				, "budapest", "dublín", "reikiavik", "roma", "pristina", "riga", "vaduz", "vilna", "luxemburgo", "skopie", 
@@ -30,11 +30,13 @@ public class Utilidades {
 	
 	//metodo para ver que es una sola letra
 	public static boolean letraOK  (String letra) {
-		boolean correcto = false;
-		if (letra.length() == 1) {
-			correcto = true;
-		}
-		return correcto;
+		char let = letra.charAt(0);
+//		boolean correcto = false;
+//		if (Character.isLetter(let)) {
+//			correcto = true;
+//		}
+//		return correcto;
+		return Character.isLetter(let);
 	}
 	
 	

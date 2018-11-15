@@ -35,7 +35,7 @@
 		
 		<!-- Div que se muestra mientras estas jugando -->
 		<%if (jugando == 1){ %>
-		<div>
+		<div align="center">
 	 	<div id="juego">
 		 	<form method="post" action="JuegoAhorcado">
 		 		Palabra a adivinar: <% for (int i = 0; i < letrasConGuiones.length; i++) { %>
@@ -66,7 +66,7 @@
 	 	
 	 	<!-- Div que se muestra cuando has ganado -->
 	 	<%if (ganado == 1){ %>
-	 	<div>
+	 	<div align="center">
 	 		<h1 align="center"> HAS GANADO!!! </h1>
 	 		<h3 align="center"> ENHORABUENA!!! </h3>
 	 		<br>
@@ -79,7 +79,7 @@
 	 	
 	 	<!-- Div que se muestra cuando has perdido -->
 	 	<%if (perdido == 1){ %>
-	 	<div>
+	 	<div align="center">
 	 		<h1 align="center"> HAS PERDIDO </h1>
 	 		<h3 align="center"> LO SIENTO!!! </h3>
 	 		
