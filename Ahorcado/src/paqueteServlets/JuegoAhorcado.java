@@ -38,11 +38,12 @@ public class JuegoAhorcado extends HttpServlet {
 
 		// genero la palabra
 		String palabra = Utilidades.generaPalabra();
+		String palabraSin = Utilidades.limpiar(palabra);
 		String fallosDisponibles = "7";
 		String letrasConGuiones[] = new String[palabra.length()]; // array de letras pero con guiones
 		String letrasProbadas = "";
 		String ultimaRecibida = "";
-		String[] letras = palabra.split("");
+		String[] letras = palabraSin.split("");
 		int jugando = 1;
 		int ganado = 0;
 		int perdido = 0;
@@ -54,6 +55,7 @@ public class JuegoAhorcado extends HttpServlet {
 		// meto en la sesion: palabra, fallos dispopnibles y array de letras de la
 		// palabra
 		laSesion.setAttribute("palabra", palabra);
+		laSesion.setAttribute("palabraSin", palabraSin);
 		laSesion.setAttribute("fallosDisponibles", fallosDisponibles);
 		laSesion.setAttribute("letrasConGuiones", letrasConGuiones);
 		laSesion.setAttribute("letrasProbadas", letrasProbadas);
@@ -90,6 +92,7 @@ public class JuegoAhorcado extends HttpServlet {
 
 			// Se recuperan las variables guardadas en la sesion
 			String palabra = (String) laSesion.getAttribute("palabra");
+			String palabraSin = (String) laSesion.getAttribute("palabraSin");
 			String fallosDisponibles = (String) laSesion.getAttribute("fallosDisponibles");
 			String[] letras = (String[]) laSesion.getAttribute("letras");
 			String letrasProbadas = (String) laSesion.getAttribute("letrasProbadas");
@@ -120,14 +123,12 @@ public class JuegoAhorcado extends HttpServlet {
 				//for que recorre la palabra y busca si contiene la letra
 				for (int i = 0; i < letrasConGuiones.length; i++) {
 					if(letras[i].equals(ultimaRecibida)) {
-						System.out.println(letrasConGuiones[i]+"g");
-						System.out.println(palabra.charAt(i)+"p");
 						letrasConGuiones[i] = Character.toString(palabra.charAt(i));
 					}
 				}
 			}
 			
-			
+			//Cambio estado de juego para saber si se esta jugando, se ha ganado, o perdido
 			if (Integer.parseInt(fallosDisponibles) == 0) {
 				jugando = 0;
 				ganado = 0;
@@ -140,6 +141,7 @@ public class JuegoAhorcado extends HttpServlet {
 			
 			//vuelvo a pasar todo a la sesion
 			laSesion.setAttribute("palabra", palabra);
+			laSesion.setAttribute("palabraSin", palabraSin);
 			laSesion.setAttribute("fallosDisponibles", fallosDisponibles);
 			laSesion.setAttribute("letrasConGuiones", letrasConGuiones);
 			laSesion.setAttribute("letrasProbadas", letrasProbadas);
@@ -149,7 +151,7 @@ public class JuegoAhorcado extends HttpServlet {
 			laSesion.setAttribute("perdido", perdido);
 			
 		} else {
-			
+			//falta poner que pasa cuando no introduzco bien la letra
 		}
 
 		/*
