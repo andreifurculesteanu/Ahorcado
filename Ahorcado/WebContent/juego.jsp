@@ -37,6 +37,7 @@
 	</head>
 	<body>
 		<h1 align="center"> Juego ahorcado </h1>
+		<h3 align="center"> Capitales europeas </h3>
 		
 		<!-- Div que se muestra mientras estas jugando -->
 		<%if (jugando == 1){ %>

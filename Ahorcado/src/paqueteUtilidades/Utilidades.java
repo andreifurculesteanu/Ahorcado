@@ -3,12 +3,12 @@ package paqueteUtilidades;
 public class Utilidades {
 	
 	public static String generaPalabra() {
-		String[] arrayPalabras = {"andreí", "dávid"};
-	/*	String[] arrayPalabras = {"tirana", "berlín", "viena", "bruselas", "minsk", "sarajevo", "sofía", "nicosia"
+		//String[] arrayPalabras = {"andreí", "dávid"};
+		String[] arrayPalabras = {"tirana", "berlín", "viena", "bruselas", "minsk", "sarajevo", "sofía", "nicosia"
 				, " zagreb", "copenhague", "bratislava", "liubliana", "madrid", "tallin", "helsinki", "parís", "atenas"
 				, "budapest", "dublín", "reikiavik", "roma", "pristina", "riga", "vaduz", "vilna", "luxemburgo", "skopie", 
 				"chisinau", "monaco", "podgorica", "oslo", "ámsterdam", "varsovia", "lisboa", "londres", "praga", "bucarest", "moscú"
-				, "belgrado", "estocolmo", "berna", "kiev", "vaticano"}; */
+				, "belgrado", "estocolmo", "berna", "kiev", "vaticano"}; 
 		int aleatorio = (int) (Math.random()*arrayPalabras.length);
 		String palabra = arrayPalabras[aleatorio];
 		
