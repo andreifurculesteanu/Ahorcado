@@ -11,6 +11,7 @@
 	int jugando = (int) laSesion.getAttribute("jugando");
 	int ganado = (int) laSesion.getAttribute("ganado");
 	int perdido = (int) laSesion.getAttribute("perdido");
+	int letraMal = (int) laSesion.getAttribute("letraMal");
 	String ruta = "img/" + fallosDisponibles + ".png";
 	String rutaPerdido = "img/" + fallosDisponibles + ".png";
 	String rutaGanado = "img/ganado.jpg";
@@ -28,6 +29,10 @@
 			#fotos{
 				float: right;
 			}
+			
+			p{
+				color: red;
+			}
 		</style>
 	</head>
 	<body>
@@ -43,6 +48,11 @@
 		 							<% } %>
 		 		<br/>
 		 		<br/>
+		 		
+		 		<%if (letraMal == 1){ %>
+		 			<p> Por favor, introduce una letra correcta! </p>
+		 		<% } %>
+		 		
 		 		Introduce una letra: <input type="text" name="letraIntroducida">
 		 		<br/>
 				<br/>
@@ -73,10 +83,10 @@
 	 		Has hacertado la palabra secreta: <%= palabra %>
 	 		<br>
 	 		<br>
-	 		<a href="JuegoAhorcado?newgame">Juego nuevo</a>
-	 		<br>
-	 		<br>
 	 		<img src="<%= rutaGanado %>">
+	 		<br>
+	 		<br>
+	 		<a href="JuegoAhorcado?newgame">Juego nuevo</a>
 	 	</div>
 	 	<% } %>
 	 	
@@ -90,10 +100,10 @@
 	 		La palabra secreta era: <%= palabra %>
 	 		<br>
 	 		<br>
-	 		<a href="JuegoAhorcado?newgame">Juego nuevo</a>
-	 		<br>
-	 		<br>
 	 		<img src="<%= rutaPerdido %>">
+	 		<br>
+	 		<br>
+	 		<a href="JuegoAhorcado?newgame">Juego nuevo</a>
 	 	</div>
 	 	<% } %>
 	</body>

@@ -15,7 +15,7 @@ public class Utilidades {
 		return palabra;
 	}
 	
-	//metodo para cambiar tildes y ñ
+	//metodo para cambiar tildes
 	public static String limpiar(String palabra) {
 	    String original = "ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏĞÒÓÔÕÖØÙÚÛÜİßàáâãäåæçèéêëìíîïğòóôõöøùúûüıÿ";
 	    //Cadena de caracteres ASCII que reemplazarán los originales.
@@ -25,18 +25,17 @@ public class Utilidades {
 	        palabra = palabra.replace(original.charAt(i), ascii.charAt(i));
 	    }
 		return palabra;
-	}
-	
+	}	
 	
 	//metodo para ver que es una sola letra
 	public static boolean letraOK  (String letra) {
 		char let = letra.charAt(0);
-//		boolean correcto = false;
-//		if (Character.isLetter(let)) {
-//			correcto = true;
-//		}
-//		return correcto;
-		return Character.isLetter(let);
+		boolean correcto = false;
+		if (Character.isLetter(let) && letra != null) {
+			correcto = true;
+		}
+		return correcto;
+		//return Character.isLetter(let);
 	}
 	
 	
