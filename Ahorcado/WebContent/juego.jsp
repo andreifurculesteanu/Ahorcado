@@ -73,6 +73,9 @@
 	 		Has hacertado la palabra secreta: <%= palabra %>
 	 		<br>
 	 		<br>
+	 		<a href="JuegoAhorcado?newgame">Juego nuevo</a>
+	 		<br>
+	 		<br>
 	 		<img src="<%= rutaGanado %>">
 	 	</div>
 	 	<% } %>
@@ -85,6 +88,9 @@
 	 		
 	 		<br>
 	 		La palabra secreta era: <%= palabra %>
+	 		<br>
+	 		<br>
+	 		<a href="JuegoAhorcado?newgame">Juego nuevo</a>
 	 		<br>
 	 		<br>
 	 		<img src="<%= rutaPerdido %>">

@@ -84,7 +84,7 @@ public class JuegoAhorcado extends HttpServlet {
 		// se recupera la ultima letra recibida
 		String ultimaRecibida = Utilidades.limpiar(request.getParameter("letraIntroducida").toLowerCase());
 		
-		if (Utilidades.letraOK(ultimaRecibida) == true) {
+		if (Utilidades.letraOK(ultimaRecibida) && Utilidades.compruebaTamano(ultimaRecibida)) {
 			/* La letra esta bien, asi que podemos recuperar la sesion y ver si la palabra contiene la letra o no*/
 			
 			// Lo primero es recuperar la sesion
@@ -153,6 +153,7 @@ public class JuegoAhorcado extends HttpServlet {
 		} else {
 			//falta poner que pasa cuando no introduzco bien la letra, por ejemplo length != 1 o cuando introduzco numero
 			// falta poner cuando la letra ya esta introducida
+
 		}
 
 		/*

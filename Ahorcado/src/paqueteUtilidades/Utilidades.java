@@ -40,6 +40,26 @@ public class Utilidades {
 	}
 	
 	
+	//metodo que comprueba que el tamaño de la letra introducida es 1
+	public static boolean compruebaTamano (String letra) {
+		boolean correcto = false;
+		if (letra.length() == 1) {
+			correcto = true;
+		}
+		return correcto;
+	}
+	
+	
+	//metodo que comprueba si se repite una letra
+	public static boolean compruebaRepeticion(String letra, String letrasProbadas) {
+		boolean correcto = false;
+		if (letrasProbadas.indexOf(letra) == -1) {
+			correcto = true;
+		}
+		return correcto;
+	}
+	
+	
 	//metodo para ver si la letra esta en la palabra
 	public static boolean contieneLetra (String letra, String word) {
 		boolean correcto = false;
