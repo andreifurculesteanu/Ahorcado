@@ -3,7 +3,6 @@ package paqueteUtilidades;
 public class Utilidades {
 	
 	public static String generaPalabra() {
-		//String[] arrayPalabras = {"andreí", "dávid"};
 		String[] arrayPalabras = {"tirana", "berlín", "viena", "bruselas", "minsk", "sarajevo", "sofía", "nicosia"
 				, " zagreb", "copenhague", "bratislava", "liubliana", "madrid", "tallin", "helsinki", "parís", "atenas"
 				, "budapest", "dublín", "reikiavik", "roma", "pristina", "riga", "vaduz", "vilna", "luxemburgo", "skopie", 
